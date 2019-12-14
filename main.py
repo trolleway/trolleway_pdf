@@ -1,3 +1,6 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 import sys  # sys нужен для передачи argv в QApplication
 from PyQt5 import QtWidgets
 import mainwindow  # Это наш конвертированный файл дизайна
@@ -116,7 +119,7 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
             # Apply sharp filter
             sharpened1 = imageObject.filter(ImageFilter.SHARPEN);
-            sharpened1.save(os.path.join(new_folder,f),quality=95,subsampling=0)
+            sharpened1.save(os.path.join(new_folder,f),quality=90,subsampling=0)
 
     def dropEXIF(self,folder,new_folder):
         files = self.getImagesList(folder)
