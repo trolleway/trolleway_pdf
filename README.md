@@ -6,4 +6,15 @@ GUI wrapper for 3 operations:
 2. Removing EXIF metadata
 3. Merge JPG to PDF.
 
-Usage
+# Usage on Windows
+
+Download and run binary executable file: https://github.com/trolleway/trolleway_pdf/releases/tag/v1.0
+
+# Usage on Ubuntu and Mac
+
+```
+git clone https://github.com/trolleway/trolleway_pdf.git
+cd trolleway_pdf
+pip install -r requirements.txt
+python main.py
+```
