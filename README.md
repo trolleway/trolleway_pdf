@@ -1,6 +1,8 @@
 # trolleway_pdf
 GUI application to convert JPEGs to pdf
 
+![Alt text](/screenshot_gui.png?raw=true "GUI screenshot")
+
 GUI wrapper for 3 operations:
 1. Sharpering images
 2. Removing EXIF metadata
