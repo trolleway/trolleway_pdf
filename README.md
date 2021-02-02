@@ -10,7 +10,7 @@ GUI wrapper for 3 operations:
 
 # Usage on Windows
 
-Download and run binary executable file from Releases: https://github.com/trolleway/trolleway_pdf/releases/download/v1.0/trolleway_pdf.exe
+Download and run binary executable file from Releases: https://github.com/trolleway/trolleway_pdf/releases/download/v2.0/trolleway_pdf2.exe
 
 # Usage on Ubuntu and Mac
 
