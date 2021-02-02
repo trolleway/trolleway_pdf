@@ -45,6 +45,10 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             #quit('not found *.jpg files')
             return
 
+        self.process(path, 'output_quality70.pdf', jpg_quality=70)
+        self.process(path, 'output_quality90.pdf', jpg_quality=90)        
+        
+    def process(path, pdf_filename, jpg_quality = 90):
         with tqdm(total=10) as outer_pbar:
             outer_pbar.update(1)
             self.print('Creating temporary folders')
@@ -58,7 +62,7 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             self.copy2subfolder(path,PATH_STAGE1)
             outer_pbar.update(1)
             self.print('Sharpering')
-            self.sharpering(PATH_STAGE1,PATH_STAGE2)
+            self.sharpering(PATH_STAGE1,PATH_STAGE2, jpg_quality)
             outer_pbar.update(1)
 
             self.print('drop EXIF')
@@ -78,6 +82,7 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             shutil.rmtree(PATH_STAGE3)
             outer_pbar.update(1)
             self.print('PDF is ready')
+                
 
     def makePdf(self,dir,pdfFileName):
 
@@ -106,7 +111,7 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
         for f in files:
             shutil.copyfile(os.path.join(folder,f),os.path.join(new_folder,f))
 
-    def sharpering(self,folder,new_folder):
+    def sharpering(self,folder,new_folder, jpg_quality=90):
         from PIL import Image
         from PIL import ImageFilter
 
@@ -119,7 +124,7 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
 
             # Apply sharp filter
             sharpened1 = imageObject.filter(ImageFilter.SHARPEN);
-            sharpened1.save(os.path.join(new_folder,f),quality=90,subsampling=0)
+            sharpened1.save(os.path.join(new_folder,f),quality = jpg_quality,subsampling=0)
 
     def dropEXIF(self,folder,new_folder):
         files = self.getImagesList(folder)
