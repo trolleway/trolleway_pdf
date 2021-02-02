@@ -45,10 +45,14 @@ class ExampleApp(QtWidgets.QMainWindow, mainwindow.Ui_MainWindow):
             #quit('not found *.jpg files')
             return
 
-        self.process(path, 'output_quality70.pdf', jpg_quality=70)
-        self.process(path, 'output_quality90.pdf', jpg_quality=90)        
+        # PIL constants
+        self.process(path, 'output_quality_low.pdf', jpg_quality='low')
+        self.process(path, 'output_quality_medium.pdf', jpg_quality='medium')
+        self.process(path, 'output_quality_high.pdf', jpg_quality='high')
+        self.process(path, 'output_quality_maximum.pdf', jpg_quality='maximum')
+       
         
-    def process(path, pdf_filename, jpg_quality = 90):
+    def process(self, path, pdf_filename, jpg_quality = 90):
         with tqdm(total=10) as outer_pbar:
             outer_pbar.update(1)
             self.print('Creating temporary folders')

@@ -2,4 +2,4 @@ tqdm
 fpdf
 pillow
 piexif
-pyqt5
+pyqt6
